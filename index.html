@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maxime J. — Portfolio BTS SIO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ─── VARIABLES ET RESET ─── */
+    :root {
+      --bg-dark: #0a0a0c;
+      --card-bg: #16161a;
+      --accent-cyan: #00f2ff;
+      --accent-purple: #bc13fe;
+      --text-main: #e2e8f0;
+      --text-dim: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Space Mono', monospace;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 12, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+      text-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    /* ─── HERO SECTION ─── */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10%;
+      position: relative;
+      background: radial-gradient(circle at 20% 30%, #1a1a2e 0%, var(--bg-dark) 100%);
+    }
+
+    .hero-tag {
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 5rem);
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .name-accent {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent-cyan);
+      filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4));
+    }
+
+    .hero-desc {
+      max-width: 600px;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 10px;
+      border: 1px solid currentColor;
+      text-transform: uppercase;
+    }
+
+    .badge-cyan { color: var(--accent-cyan); }
+    .badge-purple { color: var(--accent-purple); }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 100px 10%;
+    }
+
+    .section-label {
+      color: var(--accent-purple);
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── TIMELINE ─── */
+    .timeline-item {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--glass);
+      transition: 0.4s ease;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item:hover {
+      border-color: var(--accent-cyan);
+      transform: translateX(10px);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .job-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .job-company {
+      color: var(--accent-cyan);
+      display: block;
+    }
+
+    .job-date {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── JOURNAL DE BORD ─── */
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .journal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass);
+      padding: 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .journal-card-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--glass);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .journal-textarea {
+      width: 100%;
+      min-height: 120px;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid #2d2d30;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      resize: none;
+    }
+
+    .journal-textarea:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      h1 { font-size: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">MJ / Portfolio</span>
+  <ul class="nav-links">
+    <li><a href="#experience">Parcours</a></li>
+    <li><a href="#journal">Journal de bord</a></li>
+    <li><a href="#veille">Veille Technologique</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">// Étudiant en informatique</div>
+  <h1>Maxime<br>
+    <span class="name-accent">J</span>
+  </h1>
+  <p class="hero-desc">
+    Spécialisé en Solutions d'Infrastructure, Systèmes et Réseaux (SISR). 
+    Passionné par la cybersécurité et l'administration système.
+  </p>
+  <div class="hero-badges">
+    <span class="badge badge-cyan">BTS SIO SISR</span>
+    
+  </div>
+</div>
+
+<section id="experience">
+  <span class="section-label">01. EXPÉRIENCE</span>
+  <h2 class="section-title">Parcours Professionnel</h2>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="job-header">
+        <div>
+          <span class="job-title">Technicien Informatique (Stage)</span>
+          <span class="job-company">@ ADG</span>
+        </div>
+        <span class="job-date">Janvier 2024 — Mars 2024</span>
+      </div>
+      <ul style="margin-left: 20px; color: var(--text-dim);">
+        <li>Maintenance et gestion du parc informatique.</li>
+        <li>Support technique et résolution d'incidents réseaux.</li>
+        <li>Installation et configuration de nouveaux équipements.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="journal">
+  <span class="section-label">02. ACTIVITÉS</span>
+  <h2 class="section-title">Journal de bord</h2>
+  
+  <div class="journal-grid">
+    <div class="journal-card">
+      <div class="journal-card-header">
+        <span>Semaine 01</span>
+        <span style="color: var(--accent-cyan)">#01</span>
+      </div>
+      <textarea class="journal-textarea" placeholder="Rédiger le compte-rendu de la semaine..."></textarea>
+    </div>
+
+    <div class="journal-card">
+      <div class="journal-card-header">
+        <span>Semaine 02</span>
+        <span style="color: var(--accent-cyan)">#02</span>
+      </div>
+      <textarea class="journal-textarea" placeholder="Rédiger le compte-rendu de la semaine..."></textarea>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  document.querySelectorAll('.timeline-item, .journal-card').forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = '0.6s ease-out';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
