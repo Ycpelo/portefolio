@@ -133,9 +133,22 @@
       display: block;
     }
 
+    .section-title-container {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
     .section-title {
       font-size: 2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 0;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-dim);
     }
 
     /* ─── TIMELINE ─── */
@@ -220,6 +233,7 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       h1 { font-size: 3.5rem; }
+      .section-title-container { gap: 0.5rem; }
     }
   </style>
 </head>
@@ -245,13 +259,14 @@
   </p>
   <div class="hero-badges">
     <span class="badge badge-cyan">BTS SIO SISR</span>
-    
   </div>
 </div>
 
 <section id="experience">
   <span class="section-label">01. EXPÉRIENCE</span>
-  <h2 class="section-title">Parcours Professionnel</h2>
+  <div class="section-title-container">
+    <h2 class="section-title">Parcours Professionnel</h2>
+  </div>
   
   <div class="timeline">
     <div class="timeline-item">
@@ -273,7 +288,10 @@
 
 <section id="journal">
   <span class="section-label">02. ACTIVITÉS</span>
-  <h2 class="section-title">Journal de bord</h2>
+  <div class="section-title-container">
+    <h2 class="section-title">Journal de bord</h2>
+    <span class="section-subtitle">(Stage du 03/07/2026 au 21/08/2026)</span>
+  </div>
   
   <div class="journal-grid">
     <div class="journal-card">
