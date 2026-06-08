@@ -229,35 +229,35 @@
     }
     .card:hover::before { opacity: 1; }
 
-    /* ── EXPERIENCE ── */
-    .exp-grid {
+    /* ── EXPERIENCE & FORMATION GRID ── */
+    .exp-grid, .edu-grid {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    .exp-card { cursor: default; }
+    .exp-card, .edu-card { cursor: default; }
 
-    .exp-header {
+    .exp-header, .edu-header {
       display: flex; justify-content: space-between; align-items: flex-start;
       gap: 16px; flex-wrap: wrap;
       margin-bottom: 14px;
     }
 
-    .exp-title {
+    .exp-title, .edu-title {
       font-family: var(--font-head);
       font-size: 16px;
       font-weight: 700;
       color: var(--text);
     }
-    .exp-company {
+    .exp-company, .edu-subtitle {
       font-size: 12px;
       color: var(--accent);
       letter-spacing: 1px;
       margin-top: 2px;
     }
 
-    .exp-date {
+    .exp-date, .edu-date {
       font-size: 11px;
       color: var(--muted);
       white-space: nowrap;
@@ -425,6 +425,7 @@
     <div class="nav-logo">M<span>axime J.</span></div>
     <div class="nav-links">
       <a href="#experience">Expérience</a>
+      <a href="#formations">Formations</a>
       <a href="#journal">Journal</a>
       <a href="#veille">Veille</a>
     </div>
@@ -437,7 +438,7 @@
     <p class="hero-tag">// Étudiant en informatique</p>
     <h1>Maxime<br/><em>J.</em></h1>
     <p class="hero-sub">
-      Spécialisé en <strong>Solutions d'Infrastructure, Systèmes et Réseaux (SISR)</strong>. 
+      
       Passionné par la cybersécurité et l'administration système.
     </p>
     <div class="hero-badges">
@@ -463,7 +464,7 @@
           <div class="exp-header">
             <div>
               <div class="exp-title">Technicien Informatique – Stage</div>
-              <div class="exp-company">ADG</div>
+            
             </div>
             <span class="exp-date">01/2024 → 03/2024</span>
           </div>
@@ -477,10 +478,44 @@
       </div>
     </section>
 
+    <!-- FORMATIONS (Ajouté d'après image_a68a02.jpg) -->
+    <section id="formations" class="reveal">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>Formations</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-grid">
+
+        <!-- Formation 1 : BTS SIO -->
+        <div class="card edu-card">
+          <div class="edu-header">
+            <div>
+              <div class="edu-title">BTS SIO – En cours</div>
+              <div class="edu-subtitle">Services Informatiques aux Organisations</div>
+            </div>
+            <span class="edu-date">En cours</span>
+          </div>
+        </div>
+
+        <!-- Formation 2 : Bac Pro SN -->
+        <div class="card edu-card">
+          <div class="edu-header">
+            <div>
+              <div class="edu-title">Bac Pro Systèmes Numériques</div>
+              <div class="edu-subtitle">Option RISC (Réseaux Informatiques et Systèmes Communicants)</div>
+            </div>
+            <span class="edu-date">09/2020 → 07/2023</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- JOURNAL DE BORD -->
     <section id="journal" class="reveal">
       <div class="section-header">
-        <span class="section-num">02</span>
+        <span class="section-num">03</span>
         <h2>Journal de Bord</h2>
         <div class="section-line"></div>
       </div>
@@ -535,7 +570,7 @@
     <!-- VEILLE TECHNOLOGIQUE -->
     <section id="veille" class="reveal">
       <div class="section-header">
-        <span class="section-num">03</span>
+        <span class="section-num">04</span>
         <h2>Veille Technologique</h2>
         <div class="section-line"></div>
       </div>
@@ -595,7 +630,7 @@
     reveals.forEach(r => observer.observe(r));
 
     // Stagger children on reveal
-    document.querySelectorAll('.exp-grid, .veille-grid, .journal-grid').forEach(grid => {
+    document.querySelectorAll('.exp-grid, .edu-grid, .veille-grid, .journal-grid').forEach(grid => {
       Array.from(grid.children).forEach((child, i) => {
         child.style.transitionDelay = `${i * 80}ms`;
         child.classList.add('reveal');
